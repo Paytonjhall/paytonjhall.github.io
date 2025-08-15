@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="en" >
+<head>
+    <meta charset="UTF-8">
+    <title>Payton Hall Profile Website</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://kit.fontawesome.com/2a575ffc83.js" crossorigin="anonymous"></script>
+</head>
+<body>
+<!-- Put Paytons stuff here -->
+<div class="topnav" id="topNav">
+    <a href="index.html"><i class="fa fa-home"></i> Home</a>
+    <a href="projects.html"><i class="fa-solid fa-code"></i> Projects</a>
+    <a href="contact.html"><i class="fa fa-envelope"></i> Contact</a>
+    <a class="active" href="hobbies.html"><i class="fa fa-envelope"></i> Hobbies</a>
+    <a href="javascript:void(0);" class="icon" onclick="myFunction()">
+        <i class="fa fa-bars"></i>
+    </a>
+</div>
+
+<div class="tabHolder">
+<div class="tab" id="tabContainer">
+</div>
+<div id="tabDataContainer">
+
+<div class="tabcontentimg" id="tabContentImage"></div>
+<div class="tabcontent" id="tabContentHolder">
+
+</div>
+</div>
+</div>
+</body>
+</html>
+
+<script>
+
+    async function loadJsonFile(filePath) {
+        try {
+            const response = await fetch(filePath);
+            if (!response.ok) {
+                throw new Error(`HTTP error! status: ${response.status}`);
+            }
+            return await response.json()
+        } catch (error) {
+            console.error("Error loading JSON file:", error);
+        }
+    }
+
+    function myFunction() {
+        const x = document.getElementById("topNav");
+        if (x.className === "topnav") {
+            x.className += " responsive";
+        } else {
+            x.className = "topnav";
+        }
+    }
+
+    function createChipText(genre) {
+        let imageLink
+        switch (genre) {
+            case "Adventure":
+                imageLink = "imgs/chips/adventure.png";
+                break;
+            case "RPG":
+                imageLink = "imgs/chips/rpg.png";
+                break;
+            case "Survival":
+                imageLink = "imgs/chips/survival.png";
+                break;
+            case "Sandbox":
+                imageLink = "imgs/chips/sandbox.png";
+                break;
+            case "Open World":
+                imageLink = "imgs/chips/openworld.png";
+                break;
+            case "Fantasy":
+                imageLink = "imgs/chips/fantasy.png";
+                break;
+            case "Automation":
+                imageLink = "imgs/chips/automation.png";
+                break;
+            case "Souls-like":
+                imageLink = "imgs/chips/soulslike.png";
+                break;
+        }
+        return `<div class="chip">
+  <img src="${imageLink}" alt="${genre}" width="96" height="96">
+  ${genre}
+</div>`
+    }
+
+    async function openGameData(buttonEl, gameName) {
+        // Get Game data
+        const games = await loadJsonFile("./content/hobbies-games.json");
+        const game = findGameBasedOnName(games, gameName);
+        const tabContents = document.getElementsByClassName("tabcontent");
+        for (let content of tabContents) {
+            content.style.display = "none";
+        }
+
+        const tabLinks = document.getElementsByClassName("tablinks");
+        for (let link of tabLinks) {
+            link.classList.remove("active");
+        }
+
+        // If game found, populate the content div
+        if (game) {
+           // Get the content holder
+            const contentHolder = document.getElementById("tabContentHolder");
+            const contentImage = document.getElementById("tabContentImage");
+            contentImage.innerHTML = `<img src="${game.img}" alt="${game.name}" width="100%" height="276">`;
+            contentImage.style.display = "block"; // Show the content
+            let chips = '';
+            for (let genre of game.genre) chips+=createChipText(genre)
+            // Add chips after I had add genre chips pictures
+            contentHolder.innerHTML = ""; // Clear previous content
+            contentHolder.innerHTML = `<h3>${game.name}</h3>
+                ${chips}
+                <p>Relase Year: ${game.releaseYear}</p>
+                <p>${game.description}</p>`;
+            contentHolder.style.display = "block"; // Show the content
+
+        }
+
+        // Mark this button active
+
+        //buttonEl.classList.add("active");
+    }
+
+    function findGameBasedOnName(games, gameName) {
+        for (let game of games.games) {
+            if (game.name === gameName) {
+                return game;
+            }
+        }
+    }
+
+
+    // Populate the tabs from JSON
+    async function init() {
+        const games = await loadJsonFile("./content/hobbies-games.json");
+        console.log(games);
+        if (!games) return;
+
+        const tabContainer = document.getElementById("tabContainer");
+
+        for (let game of games.games) {
+            // Create tab button
+            const button = document.createElement("button");
+            button.className = "tablinks";
+            button.textContent = game.name;
+            button.onclick = (e) => openGameData(e, game.name);
+            tabContainer.appendChild(button);
+
+            // Create content section
+            // const contentDiv = document.createElement("div");
+            // contentDiv.id = game.name;
+            // contentDiv.className = "tabcontent";
+            // contentDiv.style.display = "none";
+            // contentDiv.innerHTML = `<h3>${game.name}</h3><p>${game.description}</p>`;
+            // tabContentsDiv.appendChild(contentDiv);
+        }
+    }
+
+    window.onscroll = function() {scrollFunction()};
+
+    function scrollFunction() {
+        if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
+            document.getElementById("tabContainer").style.top = "0";
+        } else {
+            document.getElementById("tabContainer").style.top = "-50px";
+        }
+    }
+
+    init();
+
+</script>

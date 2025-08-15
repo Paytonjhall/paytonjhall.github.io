@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en" >
+<head>
+    <meta charset="UTF-8">
+    <title>Payton Hall Profile Website</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://kit.fontawesome.com/2a575ffc83.js" crossorigin="anonymous"></script>
+</head>
+<body>
+<!-- Put Paytons stuff here -->
+<div class="topnav" id="topNav">
+    <a href="index.html"><i class="fa fa-home"></i> Home</a>
+    <a class="active" href="projects.html"><i class="fa-solid fa-code"></i> Projects</a>
+    <a href="contact.html"><i class="fa fa-envelope"></i> Contact</a>
+    <a href="hobbies.html"><i class="fa fa-envelope"></i> Hobbies</a>
+    <a href="javascript:void(0);" class="icon" onclick="myFunction()">
+        <i class="fa fa-bars"></i>
+    </a>
+</div>
+
+
+
+
+<!-- Toggleable (vertical) tabs for video games I have enjoyed -->
+</body>
+</html>
+
+<script>
+    function myFunction() {
+        const x = document.getElementById("topNav");
+        if (x.className === "topnav") {
+            x.className += " responsive";
+        } else {
+            x.className = "topnav";
+        }
+    }
+</script>

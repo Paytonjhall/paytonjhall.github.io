@@ -1,0 +1,53 @@
+{
+  "games": [
+    {
+        "name": "The Elder Scrolls V: Skyrim",
+        "genre": ["RPG", "Open World", "Fantasy"],
+        "platforms": ["PC", "PS4", "Xbox One"],
+        "releaseYear": 2011,
+        "description": "An open-world action RPG set in a fantasy world filled with dragons, magic, and epic quests.",
+        "img": "imgs/skyrim.jpg"
+    },
+    {
+      "name": "Terraria",
+        "genre": ["Adventure", "Sandbox", "Survival"],
+        "platforms": ["PC", "PS4", "Xbox One", "Switch"],
+        "releaseYear": 2011,
+        "description": "A 2D sandbox adventure game where players can explore, build, and fight in a procedurally generated world.",
+        "img": "imgs/terraria.jpg"
+
+    },
+    {
+      "name": "Claire Obscure: Expedition 33",
+        "genre": ["Adventure", "RPG", "Fantasy"],
+        "platforms": ["PC", "PS5", "Xbox Series X"],
+        "releaseYear": 2025,
+        "description": "TODO, Write this.",
+        "img": "imgs/claire-obscur.png"
+    },
+    {
+      "name": "Factorio",
+      "genre": ["Automation", "Survival"],
+      "platforms": ["PC"],
+      "releaseYear": 2020,
+      "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
+      "img": "imgs/factorio.jpg"
+    },
+    {
+      "name": "Satisfactory",
+      "genre": ["Automation", "Survival"],
+      "platforms": ["PC"],
+      "releaseYear": 2020,
+      "description": "A first-person open-world factory building game where players explore an alien planet and build complex production systems.",
+      "img": "imgs/satisfactory.jpeg"
+    },
+    {
+      "name": "Elden Ring",
+        "genre": ["RPG", "Open World", "Fantasy", "Souls-like"],
+        "platforms": ["PC", "PS4", "PS5", "Xbox One", "Xbox Series X"],
+        "releaseYear": 2022,
+        "description": "An open-world action RPG set in a dark fantasy world, featuring challenging combat and deep lore.",
+        "img": "imgs/elden-ring.jpg"
+    }
+  ]
+}
